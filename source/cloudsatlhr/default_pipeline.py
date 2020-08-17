@@ -22,10 +22,10 @@ class DefaultPipeline(core.Stack):
             synth_action=pipelines.SimpleSynthAction(
                 source_artifact=source_artifact,
                 subdirectory="source",
-                synth_command="cdk synth",
-                build_command="pip install -r requirements.txt",
+                synth_command="npx cdk synth",
+                install_command="pip install -r requirements.txt",
                 cloud_assembly_artifact=cloud_assembly
                 )
         )
 
-        # The code that defines your stack goes here
+        # The code that defines your stack goes here 
