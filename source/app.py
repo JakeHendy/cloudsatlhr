@@ -2,10 +2,9 @@
 
 from aws_cdk import core
 
-from source.source_stack import SourceStack
-
+from cloudsatlhr.default_pipeline import DefaultPipeline
 
 app = core.App()
-SourceStack(app, "source")
+DefaultPipeline(app, "DefaultPipeline")
 
 app.synth()

@@ -4,9 +4,15 @@ import setuptools
 with open("README.md") as fp:
     long_description = fp.read()
 
+CDK_VERSION = "1.58.0"
+
+
+def cdk_module(module: str) -> str:
+    return f'aws-cdk.{module}=={CDK_VERSION}'
+
 
 setuptools.setup(
-    name="source",
+    name="CloudsAtLHR",
     version="0.0.1",
 
     description="An empty CDK Python app",
@@ -15,11 +21,17 @@ setuptools.setup(
 
     author="author",
 
-    package_dir={"": "source"},
+    package_dir={"": "cloudsatlhr"},
     packages=setuptools.find_packages(where="source"),
 
     install_requires=[
-        "aws-cdk.core==1.39.0",
+        cdk_module("core"),
+        cdk_module("pipelines"),
+        cdk_module("aws-codebuild"),
+        cdk_module("aws-codepipeline"),
+        cdk_module("aws-codepipeline-actions"),
+        cdk_module("aws-cloudwatch"),
+        cdk_module("aws-events")
     ],
 
     python_requires=">=3.6",
