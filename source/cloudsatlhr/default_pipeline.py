@@ -22,6 +22,7 @@ class DefaultPipeline(core.Stack):
             synth_action=pipelines.SimpleSynthAction(
                 source_artifact=source_artifact,
                 subdirectory="source",
+                synth_command="cdk synth",
                 cloud_assembly_artifact=cloud_assembly
                 )
         )
