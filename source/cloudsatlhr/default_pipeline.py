@@ -23,6 +23,7 @@ class DefaultPipeline(core.Stack):
                 source_artifact=source_artifact,
                 subdirectory="source",
                 synth_command="cdk synth",
+                build_command="pip install -r requirements.txt",
                 cloud_assembly_artifact=cloud_assembly
                 )
         )
