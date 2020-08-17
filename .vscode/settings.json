@@ -1,3 +1,4 @@
 {
-    "python.pythonPath": "~/Development/cloudsatlhr/source/.env/bin/python"
+    "python.pythonPath": "source/.env/bin/python",
+    "python.autoComplete.extraPaths": ["source", "source/cloudsatlhr/", "cloudsatlhr"]
 }
