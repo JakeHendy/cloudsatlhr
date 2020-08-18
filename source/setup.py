@@ -32,7 +32,9 @@ setuptools.setup(
         cdk_module("aws-codepipeline-actions"),
         cdk_module("aws-cloudwatch"),
         cdk_module("aws-dynamodb"),
-        cdk_module("aws-events")
+        cdk_module("aws-events"),
+        cdk_module("aws-lambda"),
+        cdk_module("aws-lambda-python")
     ],
 
     python_requires=">=3.6",
