@@ -18,6 +18,6 @@ class IngestionStack(core.Stack):
         feed_scanner_lambda = pylambda.PythonFunction(self, "FeedScannerLambda",
                                                       entry="lambdas/feed_scanner/",
                                                       index="app/index.py",
-                                                      runtime=lambda_.Runtime.PYTHON_3_8
+                                                      runtime=lambda_.Runtime.PYTHON_3_7
                                                       )
         self.feed_scanner_lambda = feed_scanner_lambda

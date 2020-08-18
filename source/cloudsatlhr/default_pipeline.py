@@ -34,7 +34,6 @@ class DefaultPipeline(core.Stack):
                 cloud_assembly_artifact=cloud_assembly
                 )
         )
-
         the_pipeline.add_application_stage(AcquisitionStack(self, "AcqusitionStackDev"))
 
         # The code that defines your stack goes here 
