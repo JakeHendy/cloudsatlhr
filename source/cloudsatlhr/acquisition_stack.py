@@ -9,4 +9,4 @@ class AcquisitionStack(core.Stage):
         super().__init__(scope, id, **kwargs)
 
         self.datastore_stack = DataStoreStack(self, "DataStoreStack")
-        self.ingestion_stack = IngestionStack(self, "TimerStack", target_table=self.datastore_stack.table)
+        self.ingestion_stack = IngestionStack(self, "IngestionStack", target_table=self.datastore_stack.table)
