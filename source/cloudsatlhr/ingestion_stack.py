@@ -22,4 +22,7 @@ class IngestionStack(core.Stack):
                                                       )
         self.feed_scanner_lambda = feed_scanner_lambda
 
+        target_table.grant_write_data(feed_scanner_lambda)
+        target_table.grant_read_data(feed_scanner_lambda)
+
         five_minute_timer.add_target(feed_scanner_lambda)
