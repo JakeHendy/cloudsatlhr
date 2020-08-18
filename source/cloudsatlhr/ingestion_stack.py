@@ -8,7 +8,7 @@ class IngestionStack(core.Stack):
         super().__init__(scope, id, **kwargs)
 
         feed_scanner_lambda = pylambda.PythonFunction(self, "FeedScannerLambda",
-                                                      function_name="CloudsatLHR Feed Scanner",
+                                                      function_name="CloudsatLHR-Feed-Scanner",
                                                       entry="lambdas/feed_scanner/",
                                                       index="app/index.py",
                                                       runtime=lambda_.Runtime.PYTHON_3_7
