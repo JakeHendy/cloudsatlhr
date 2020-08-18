@@ -4,7 +4,7 @@ import setuptools
 with open("README.md") as fp:
     long_description = fp.read()
 
-CDK_VERSION = "1.58.0"
+CDK_VERSION = "1.59.0"
 
 
 def cdk_module(module: str) -> str:
