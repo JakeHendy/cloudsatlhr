@@ -11,7 +11,8 @@ class DefaultPipeline(core.Stack):
         cloud_assembly = codepipeline.Artifact()
         
         build_environment = codebuild.BuildEnvironment(
-            build_image=codebuild.LinuxBuildImage.AMAZON_LINUX_2_3
+            build_image=codebuild.LinuxBuildImage.AMAZON_LINUX_2_3,
+            privileged=True
         )
 
         the_pipeline = pipelines.CdkPipeline(self, "Pipeline",
