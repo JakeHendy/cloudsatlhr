@@ -1,4 +1,4 @@
-from aws_cdk import (core, aws_dynamodb as ddb, aws_events as events,
+from aws_cdk import (core, aws_dynamodb as ddb, aws_events as events, aws_events_targets as targets,
                      aws_lambda as lambda_, aws_lambda_python as pylambda)
 
 
@@ -23,6 +23,6 @@ class IngestionStack(core.Stack):
             "FiveMinuteTimer",
             enabled=True,
             schedule=events.Schedule.rate(core.Duration.minutes(5)),
-            targets=[feed_scanner_lambda])
+            targets=[targets.LambdaFunction(feed_scanner_lambda)])
 
         self.five_minute_timer = five_minute_timer
