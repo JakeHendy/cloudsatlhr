@@ -21,3 +21,5 @@ class IngestionStack(core.Stack):
                                                       runtime=lambda_.Runtime.PYTHON_3_7
                                                       )
         self.feed_scanner_lambda = feed_scanner_lambda
+
+        five_minute_timer.add_target(feed_scanner_lambda)
