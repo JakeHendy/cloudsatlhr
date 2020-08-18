@@ -16,6 +16,7 @@ class IngestionStack(core.Stack):
         self.five_minute_timer = five_minute_timer
 
         feed_scanner_lambda = pylambda.PythonFunction(self, "FeedScannerLambda",
+                                                      function_name="CloudsatLHR Feed Scanner",
                                                       entry="lambdas/feed_scanner/",
                                                       index="app/index.py",
                                                       runtime=lambda_.Runtime.PYTHON_3_7
