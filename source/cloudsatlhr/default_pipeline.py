@@ -1,4 +1,4 @@
-from aws_cdk import core, pipelines, aws_codepipeline as codepipeline, aws_codepipeline_actions as actions
+from aws_cdk import core, pipelines, aws_codebuild as codebuild, aws_codepipeline as codepipeline, aws_codepipeline_actions as actions
 
 from cloudsatlhr.acquisition_stack import AcquisitionStack
 
@@ -10,6 +10,10 @@ class DefaultPipeline(core.Stack):
         source_artifact = codepipeline.Artifact()
         cloud_assembly = codepipeline.Artifact()
         
+        build_environment = codebuild.BuildEnvironment(
+            build_image=codebuild.LinuxBuildImage.AMAZON_LINUX_2_3
+        )
+
         the_pipeline = pipelines.CdkPipeline(self, "Pipeline",
             pipeline_name="DefaultPipeline",
             cloud_assembly_artifact=cloud_assembly,
@@ -20,11 +24,13 @@ class DefaultPipeline(core.Stack):
                 owner="JakeHendy",
                 repo="cloudsatlhr"
             ),
+
             synth_action=pipelines.SimpleSynthAction(
                 source_artifact=source_artifact,
                 subdirectory="source",
                 synth_command="npx cdk synth",
                 install_command="pip install -r requirements.txt",
+                environment=build_environment,
                 cloud_assembly_artifact=cloud_assembly
                 )
         )
