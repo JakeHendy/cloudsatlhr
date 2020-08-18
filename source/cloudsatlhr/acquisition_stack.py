@@ -1,6 +1,7 @@
 from aws_cdk import (core )
 
 from .timer_stack import TimerStack
+from .data_store_stack import DataStoreStack
 
 class AcquisitionStack(core.Stage):
 
@@ -8,3 +9,4 @@ class AcquisitionStack(core.Stage):
         super().__init__(scope, id, **kwargs)
 
         self.timer_stack = TimerStack(self, "TimerStack")
+        self.datastore_stack = DataStoreStack(self, "DataStoreStack")
