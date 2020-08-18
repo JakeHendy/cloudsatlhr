@@ -31,6 +31,7 @@ setuptools.setup(
         cdk_module("aws-codepipeline"),
         cdk_module("aws-codepipeline-actions"),
         cdk_module("aws-cloudwatch"),
+        cdk_module("aws-dynamodb"),
         cdk_module("aws-events")
     ],
 
