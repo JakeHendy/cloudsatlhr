@@ -1,5 +1,6 @@
 from aws_cdk import core, pipelines, aws_codepipeline as codepipeline, aws_codepipeline_actions as actions
 
+from cloudsatlhr.acquisition_stack import AcquisitionStack
 
 class DefaultPipeline(core.Stack):
 
@@ -27,5 +28,7 @@ class DefaultPipeline(core.Stack):
                 cloud_assembly_artifact=cloud_assembly
                 )
         )
+
+        the_pipeline.add_application_stage(AcquisitionStack(self, "AcqusitionStackDev"))
 
         # The code that defines your stack goes here 
