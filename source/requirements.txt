@@ -1,1 +1,2 @@
 -e .
+-e lambdas/feed_scanner/
